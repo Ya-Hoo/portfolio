@@ -5,15 +5,16 @@ import { lookup } from 'mime-types'
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { slug: string; filename: string } }
+  { params }: { params: Promise<{ slug: string; filename: string }> }
 ) {
+  const { slug, filename } = await params
   const filePath = path.join(
     process.cwd(),
     'content',
     'projects',
-    params.slug,
+    slug,
     'files',
-    params.filename
+    filename
   )
 
   if (!fs.existsSync(filePath)) {
@@ -21,13 +22,12 @@ export async function GET(
   }
 
   const buffer = fs.readFileSync(filePath)
-  const mimeType = (lookup(params.filename) as string) || 'application/octet-stream'
+  const mimeType = (lookup(filename) as string) || 'application/octet-stream'
 
   return new NextResponse(buffer, {
     headers: {
       'Content-Type': mimeType,
-      'Content-Disposition': `inline; filename="${params.filename}"`,
-      // Aggressive caching for static assets in dev — tune for production
+      'Content-Disposition': `inline; filename="${filename}"`,
       'Cache-Control': 'public, max-age=3600',
     },
   })
