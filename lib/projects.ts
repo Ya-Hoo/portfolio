@@ -12,7 +12,7 @@ export interface ProjectMeta {
   category:    ProjectCategory
   tags:        string[]          // tech stack tags
   updatedAt:   string            // ISO date string "2024-03-10"
-  section:     'work' | 'fun'
+  section:     'fun' | 'work'
   repoUrl?:    string
   links?:      { label: string; url: string }[]
 }
