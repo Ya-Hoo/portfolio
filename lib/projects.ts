@@ -50,7 +50,20 @@ export function getProjectBySlug(slug: string): ProjectMeta | null {
   return { slug, ...meta }
 }
 
-export function getProjectFiles(slug: string) {
+export interface FileItem {
+  filename: string
+  ext:      string
+  size:     string
+  url:      string
+}
+
+export interface MediaItem {
+  filename: string
+  type:     'image' | 'video'
+  url:      string
+}
+
+export function getProjectFiles(slug: string): FileItem[] {
   const filesDir = path.join(CONTENT_DIR, slug, 'files')
   if (!fs.existsSync(filesDir)) return []
 
@@ -62,21 +75,21 @@ export function getProjectFiles(slug: string) {
       filename,
       ext,
       size: formatBytes(stats.size),
-      // Public URL — you'll need to serve /content via Next.js or copy to /public
       url: `/project-files/${slug}/${filename}`,
     }
   })
 }
 
-export function getProjectMedia(slug: string) {
+export function getProjectMedia(slug: string): MediaItem[] {
   const mediaDir = path.join(CONTENT_DIR, slug, 'media')
   if (!fs.existsSync(mediaDir)) return []
   const imageExts = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'mp4', 'mov']
+  const videoExts = ['mp4', 'mov']
   return fs.readdirSync(mediaDir)
     .filter(f => imageExts.includes(path.extname(f).toLowerCase().slice(1)))
-    .map(filename => ({
+    .map((filename): MediaItem => ({
       filename,
-      type: ['mp4', 'mov'].includes(path.extname(filename).toLowerCase().slice(1)) ? 'video' : 'image',
+      type: videoExts.includes(path.extname(filename).toLowerCase().slice(1)) ? 'video' : 'image',
       url: `/project-media/${slug}/${filename}`,
     }))
 }

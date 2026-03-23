@@ -1,20 +1,8 @@
 'use client'
 import { useState } from 'react'
 import Modal, { PdfViewer } from '@/components/Modal'
+import type { FileItem, MediaItem } from '@/lib/projects'
 import styles from './ProjectPageClient.module.css'
-
-interface FileItem {
-  filename: string
-  ext:      string
-  size:     string
-  url:      string
-}
-
-interface MediaItem {
-  filename: string
-  type:     'image' | 'video'
-  url:      string
-}
 
 interface Props {
   files:    FileItem[]
