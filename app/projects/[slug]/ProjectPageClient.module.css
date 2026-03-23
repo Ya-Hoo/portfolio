@@ -1,0 +1,202 @@
+.section {
+  margin-bottom: 3rem;
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-bottom: 1rem;
+}
+
+/* ── File list ──────────────────────────────────── */
+.fileList {
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.fileRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+.fileRow:last-child { border-bottom: none; }
+.fileRow:hover { background: var(--bg-hover); }
+
+/* Type badge — 3D / PDF / STL etc. */
+.fileTypeBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tag-text);
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.15em 0.5em;
+  flex-shrink: 0;
+  min-width: 2.8rem;
+  text-align: center;
+}
+
+.fileName {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.fileAction {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 0.2em 0.7em;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.12s, color 0.12s;
+}
+.fileAction:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+/* ── Gallery ────────────────────────────────────── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 0.6rem;
+}
+
+.thumb {
+  position: relative;
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  aspect-ratio: 4/3;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.thumb:hover {
+  border-color: var(--border-strong);
+  transform: scale(1.02);
+}
+.thumb img,
+.thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play indicator for video thumbnails */
+.playBadge {
+  position: absolute;
+  bottom: 0.45rem;
+  right: 0.5rem;
+  background: rgba(28, 25, 23, 0.55);
+  color: #fff;
+  font-size: 0.6rem;
+  line-height: 1;
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  pointer-events: none;
+  letter-spacing: 0.03em;
+}
+
+/* ── Links ──────────────────────────────────────── */
+.linkList {
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.linkList li { border-bottom: 1px solid var(--border); }
+.linkList li:last-child { border-bottom: none; }
+
+.extLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  transition: background 0.12s, color 0.12s;
+}
+.extLink:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.arrow { margin-left: auto; color: var(--text-faint); font-size: 0.8rem; }
+
+/* ── Download prompt (modal) ────────────────────── */
+.downloadPrompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.downloadName {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.downloadMeta {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+.downloadBtn {
+  margin-top: 0.75rem;
+  display: inline-block;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.82rem;
+  padding: 0.55em 1.4em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.downloadBtn:hover { opacity: 0.75; }
+
+/* ── Lightbox media ─────────────────────────────── */
+.lightboxImg {
+  max-width: 100%;
+  max-height: 75vh;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}

@@ -1,0 +1,11 @@
+{
+  "title": "ASCII Video Render",
+  "description": "A Python tool that converts any video into real-time ASCII art, mapping brightness to character density frame-by-frame.",
+  "status": "done",
+  "category": "Software",
+  "tags": ["Python", "OpenCV"],
+  "updatedAt": "2026-02-15",
+  "section": "fun",
+  "repoUrl": "https://github.com/Ya-Hoo/ASCII-vid",
+  "links": []
+}

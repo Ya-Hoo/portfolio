@@ -1,0 +1,10 @@
+{
+  "title": "Inverted Pendulum",
+  "description": "A self-balancing inverted pendulum controlled with a discrete LQR algorithm.",
+  "status": "wip",
+  "category": "Research",
+  "tags": ["ESP32", "Python", "LQR", "Fusion 360"],
+  "updatedAt": "2025-03-11",
+  "section": "work",
+  "links": []
+}

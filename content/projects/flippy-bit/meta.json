@@ -1,0 +1,10 @@
+{
+  "title": "Flippy Bit",
+  "description": "A bot playing the game Flippy Bit, converting hexadecimals to binary.",
+  "status": "done",
+  "category": "Software",
+  "tags": ["Python", "Web scrapping"],
+  "updatedAt": "2024-03-05",
+  "section": "fun",
+  "links": []
+}
